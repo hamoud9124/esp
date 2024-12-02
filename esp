@@ -1,0 +1,25 @@
+while true do
+	task.wait(5)
+	local function highlightplayer(plr)
+		local highlight = Instance.new("Highlight", plr.Character)
+		local newgui = Instance.new("BillboardGui", plr.Character)
+		local tl = Instance.new("TextLabel", newgui)
+		highlight.OutlineColor = plr.TeamColor.Color
+		highlight.FillColor = plr.TeamColor.Color
+		tl.Text = plr.Name
+		tl.TextScaled = true
+		tl.TextColor3 = plr.TeamColor.Color
+		tl.Visible = true
+		tl.Size = UDim2.new(0,100,0,25)
+		tl.BackgroundColor = BrickColor.Black()
+		newgui.AlwaysOnTop = true
+		newgui.MaxDistance = math.huge
+		newgui.Active = true
+		newgui.Size = UDim2.new(0,200,0,50)
+		newgui.Enabled = true
+	end
+	for _,plr in ipairs(game:GetService("Players"):GetPlayers()) do
+		highlightplayer(plr)
+		print("hi")
+	end
+end
